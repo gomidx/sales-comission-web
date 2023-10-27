@@ -2,28 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SellerSalesEmail;
-use App\Utils\Utils;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use App\Services\EmailService;
+use Illuminate\Http\RedirectResponse;
 
 class EmailController extends Controller
 {
-    public function sendEmail()
-    {
-        $sales = $this->calculateSellerSalesValueForEmail();
+    private EmailService $service;
 
-        Mail::to('lucasgomidecv@gmail.com')->send(new SellerSalesEmail($sales));
+    public function __construct()
+    {
+        $this->service = new EmailService();
     }
 
-    private function calculateSellerSalesValueForEmail(): array
+    public function sendEmailToSeller(int $sellerId, string $sellerEmail): RedirectResponse
     {
-        $sellers = Utils::doRequestWithToken('get', [], '/seller/list');
-
-        foreach ($sellers['data'] as $seller) {
-            $sellerSales = Utils::doRequestWithToken('get', [], '/email/sellers/sales');
+        try {
+            return $this->service->sendToSeller($sellerId, $sellerEmail);
+        } catch (\Throwable $th) {
+            return redirect('/dashboard/sellers')->with('error', 'Erro interno, contate o administrador do sistema.');
         }
+    }
 
-        return $sellerSales;
+    public function sendEmailToAdministrator(string $adminEmail): RedirectResponse
+    {
+        try {
+            return $this->service->sendToAllSellers($adminEmail);
+        } catch (\Throwable $th) {
+            return redirect('/dashboard')->with('error', 'Erro interno, contate o administrador do sistema.');
+        }
     }
 }

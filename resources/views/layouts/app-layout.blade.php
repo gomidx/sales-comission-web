@@ -34,10 +34,24 @@
                     </li>
 
                     <li class="nav-item custom-nav-item">
+                        <a class="nav-link active" href="{{ route('dashboard.send-administrator-email', session('email')) }}">
+                            Relatório de vendas
+                        </a>
+                    </li>
+
+                    <li class="nav-item custom-nav-item">
                         <a class="nav-link" href="{{ route('auth.logout') }}">
                             Sair
                         </a>
                     </li>
+
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+
+                        {{ session()->forget('success') }}
+                    @endif
                 </ul>
             </div>
         </nav>

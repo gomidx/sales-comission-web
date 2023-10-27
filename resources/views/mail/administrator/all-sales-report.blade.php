@@ -46,23 +46,21 @@
     </style>
 </head>
 <body>
-    <h2>Relatório de vendas do dia</h2>
+    <h2>Relatório de vendas gerais do dia</h2>
 
-    <p>Olá! Segue abaixo o relatório de suas vendas do dia {{ date('d/m/Y') }}.</p>
+    <p>Olá! Segue abaixo o relatório de todas as vendas realizadas no dia {{ date('d/m/Y') }}.</p>
 
     <table>
         <thead>
             <tr>
                 <th>Quantidade de vendas</th>
                 <th>Valor total das vendas</th>
-                <th>Valor total da comissão</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>{{ $sales['totalSales'] }}</td>
                 <td>R$ {{ $sales['totalValue'] }}</td>
-                <td>R$ {{ $sales['totalComission'] }}</td>
             </tr>
         </tbody>
     </table>

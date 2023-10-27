@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SellerSalesEmail extends Mailable
+class AllSalesEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -39,7 +39,7 @@ class SellerSalesEmail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.seller.sales-report',
+            view: 'mail.administrator.all-sales-report',
         );
     }
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\SellerService;
-use App\Utils\Utils;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

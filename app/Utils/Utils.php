@@ -15,14 +15,14 @@ class Utils
         return 'Erro interno, contate um administrador do sistema.';
     }
 
-    public static function doRequestWithoutToken(array $payload, string $endpoint): array
+    public static function doRequestWithoutToken(array $payload, string $endpoint, string $method = 'post'): array
     {
         try {
             $client = new Client();
 
             $url = 'http://127.0.0.1:8092/api' . $endpoint;
 
-            $response = $client->post($url, [
+            $response = $client->$method($url, [
                 'json' => $payload,
                 'headers' => [
                     'Content-Type' => 'application/json',

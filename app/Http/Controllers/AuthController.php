@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\AuthService;
-use App\Utils\Utils;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,44 +30,26 @@ class AuthController extends Controller
     {
         session()->forget('api_token');
         session()->forget('name');
+        session()->forget('email');
 
         return redirect()->route('auth.login');
     }
 
     public function loginPost(Request $request): RedirectResponse
     {
-        $apiResponse = Utils::doRequestWithoutToken($request->all(), '/token');
-
-        if (! empty($apiResponse['data'])) {
-            session(['api_token' => $apiResponse['data']]);
-
-            $this->setUserNameOnSession($request->input('email'));
-
-            return redirect('/dashboard');
+        try {
+            return $this->service->login($request);
+        } catch (\Throwable $th) {
+            return redirect('/dashboard/sales')->with('error', 'Erro interno, contate o administrador do sistema.');
         }
-
-        return redirect('/login')->with('error', Utils::buildError($apiResponse['error'] ?? ''));
     }
 
     public function registerPost(Request $request): RedirectResponse
     {
-        $apiResponse = Utils::doRequestWithoutToken($request->all(), '/user');
-
-        if (! empty($apiResponse['data'])) {
-            return $this->loginPost($request);
-        }
-
-        return redirect()->route('/login')->with('error', Utils::buildError($apiResponse['error'] ?? ''));
-    }
-
-    private function setUserNameOnSession(string $email): void
-    {
-        $apiResponse = Utils::doRequestWithToken('get', [], '/user/' . $email);
-
-        if (! empty($apiResponse['data'])) {
-            session(['name' => $apiResponse['data']['name']]);
-        } else {
-            session(['name' => $email]);
+        try {
+            return $this->service->register($request);
+        } catch (\Throwable $th) {
+            return redirect('/dashboard/sales')->with('error', 'Erro interno, contate o administrador do sistema.');
         }
     }
 }
