@@ -4,12 +4,17 @@ O frontend do projeto foi desenvolvido em PHP utilizando o framework Laravel. O 
 
 1. Cadastro, login e logout de usuários adiministradores
 2. Listagem, cadastro, edição e exclusão de vendedores
-3. Envio de um relatório por e-mail das vendas do dia ao vendedor
+3. Envio de um relatório por e-mail das vendas do dia e suas respectivas comissões ao vendedor
 4. Listagem e cadastro de vendas
 5. Envio de um relatório por e-mail para o administrador logado de todas as vendas do dia
-6. Autenticação para acessar o dashboard
+6. Envio diário às 18h de um relatório por e-mail para os vendedores de todas suas vendas e respectivas comissões do dia
+7. Autenticação para acessar o dashboard
 
-## 🚀 Começando
+## 🚀 Setup do projeto
+
+### ⚠️ Atenção
+
+Para que o projeto funcione corretamente, é NECESSÁRIO que a [API](https://github.com/gomidx/sales-comission-api) seja inicializada primeiro!
 
 ### 🔧 Instalação
 
@@ -24,6 +29,14 @@ E para iniciar o projeto, rode o comando:
 ```
 php artisan serve
 ```
+
+Para o envio diário é necessário rodar o comando:
+
+```
+php artisan schedule:work
+```
+
+esse comando fará com que o schedule do Laravel rode localmente verificando as tarefas a serem executadas.
 
 Pronto, o projeto estará rodando na rota http://127.0.0.1/8000!
 
