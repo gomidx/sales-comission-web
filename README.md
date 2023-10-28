@@ -1,6 +1,6 @@
 # Frontend do projeto de cadastro de vendas e cálculo de comissões
 
-O frontend do projeto foi desenvolvido e PHP utilizando o framework Laravel. O projeto se trata de um dashboard que conta com as seguintes funcionalidades:
+O frontend do projeto foi desenvolvido em PHP utilizando o framework Laravel. O projeto se trata de um dashboard que conta com as seguintes funcionalidades:
 
 1. Cadastro, login e logout de usuários adiministradores
 2. Listagem, cadastro, edição e exclusão de vendedores
@@ -29,7 +29,8 @@ Pronto, o projeto estará rodando na rota http://127.0.0.1/8000!
 
 ## 🛠️ Construído com
 
-* [Laravel](http://www.dropwizard.io/1.0.2/docs/)
+* [PHP](https://www.php.net/)
+* [Laravel](https://laravel.com/)
 
 ---
 Desenvolvido com ❤️ e muito ☕ por [Lucas Gomide](https://github.com/gomidx)
