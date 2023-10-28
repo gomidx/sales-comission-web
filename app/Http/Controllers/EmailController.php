@@ -26,7 +26,7 @@ class EmailController extends Controller
     public function sendEmailToAdministrator(string $adminEmail): RedirectResponse
     {
         try {
-            return $this->service->sendToAllSellers($adminEmail);
+            return $this->service->sendToAdministrator($adminEmail);
         } catch (\Throwable $th) {
             return redirect('/dashboard')->with('error', 'Erro interno, contate o administrador do sistema.');
         }
