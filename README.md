@@ -33,6 +33,7 @@ sudo make kill-app
 ```
 
 Atenção: todos os comandos devem ser executados na raíz do projeto.
+
 Obs.: me deparei com um problema ao tentar acessar a rota do projeto utilzando o navegador Chrome, caso se depare com esse problema, basta utilizar outro navegador.
 
 ## 🛠️ Construído com
