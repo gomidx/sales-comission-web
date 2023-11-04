@@ -14,36 +14,32 @@ O frontend do projeto foi desenvolvido em PHP utilizando o framework Laravel. O 
 
 ### ⚠️ Atenção
 
-Para que o projeto funcione corretamente, é NECESSÁRIO que a [API](https://github.com/gomidx/sales-comission-api) seja inicializada primeiro!
+Para que o projeto funcione corretamente, é NECESSÁRIO que a [API](https://github.com/gomidx/sales-comission-api) seja inicializada primeiro.
 
-### 🔧 Instalação
+### 🔧 Iniciar
 
-Para instalar as dependências do projeto, rode o comando:
-
-```
-composer install
-```
-
-E para iniciar o projeto, rode o comando:
+Para iniciar o projeto, execute o comando na raíz do projeto:
 
 ```
-php artisan serve
+sudo make run-app-with-setup
 ```
 
-Para o envio diário é necessário rodar o comando:
+Pronto! O projeto estará rodando na rota http://localhost:8001
+
+Para derrubar o projeto, execute o comando:
 
 ```
-php artisan schedule:work
+sudo make kill-app
 ```
 
-esse comando fará com que o schedule do Laravel rode localmente verificando as tarefas a serem executadas.
-
-Pronto, o projeto estará rodando na rota http://127.0.0.1/8000!
+Atenção: todos os comandos devem ser executados na raíz do projeto.
+Obs.: me deparei com um problema ao tentar acessar a rota do projeto utilzando o navegador Chrome, caso se depare com esse problema, basta utilizar outro navegador.
 
 ## 🛠️ Construído com
 
 * [PHP](https://www.php.net/)
 * [Laravel](https://laravel.com/)
+* [Docker](https://www.docker.com/)
 
 ---
 Desenvolvido com ❤️ e muito ☕ por [Lucas Gomide](https://github.com/gomidx)

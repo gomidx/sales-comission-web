@@ -20,7 +20,7 @@ class Utils
         try {
             $client = new Client();
 
-            $url = 'http://127.0.0.1:8092/api' . $endpoint;
+            $url = $_SERVER['REMOTE_ADDR'] . ':8000/api' . $endpoint;
 
             $response = $client->$method($url, [
                 'json' => $payload,
@@ -43,7 +43,7 @@ class Utils
         try {
             $client = new Client();
 
-            $url = 'http://127.0.0.1:8092/api' . $endpoint;
+            $url = $_SERVER['REMOTE_ADDR'] . ':8000/api' . $endpoint;
 
             $response = $client->$method($url, [
                 'json' => $payload,
