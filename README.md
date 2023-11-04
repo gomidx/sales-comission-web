@@ -36,6 +36,8 @@ Atenção: todos os comandos devem ser executados na raíz do projeto.
 
 Obs.: me deparei com um problema ao tentar acessar a rota do projeto utilzando o navegador Chrome, caso se depare com esse problema, basta utilizar outro navegador.
 
+Obs.: caso apresente algum erro na primeira inicialização, derrube a aplicação e a inicie novamente.
+
 ## 🛠️ Construído com
 
 * [PHP](https://www.php.net/)
