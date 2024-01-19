@@ -28,8 +28,12 @@ class DailyEmails extends Command
      */
     public function handle()
     {
-        $emailService = new EmailService();
+        try {
+            $emailService = new EmailService();
 
-        $emailService->sendToAllSellers();
+            $emailService->sendToAllSellers();
+        } catch (\Throwable $th) {
+
+        }
     }
 }
